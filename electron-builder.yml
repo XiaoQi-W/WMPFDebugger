@@ -1,0 +1,19 @@
+appId: com.wmpf.debugger
+productName: WMPFDebugger
+directories:
+  output: release
+files:
+  - "dist"
+  - "src/third-party"
+  - "package.json"
+extraResources:
+  - from: frida/
+    to: frida/
+win:
+  target:
+    - nsis
+    - dir
+mac:
+  target:
+    - dmg
+  category: public.app-category.developer-tools

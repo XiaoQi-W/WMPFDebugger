@@ -1,18 +1,42 @@
 {
   "name": "WMPFDebugger",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "dist/main/main.js",
   "license": "GPL-2.0-only",
   "author": "evi0s",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build:renderer": "vite build",
+    "build:main": "tsc -p tsconfig.node.json",
+    "build": "yarn build:renderer && yarn build:main",
+    "pack": "yarn build && electron-builder --config electron-builder.yml",
+    "pack:win": "yarn build && electron-builder --config electron-builder.yml --win",
+    "pack:mac": "yarn build && electron-builder --config electron-builder.yml --mac"
+  },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "frida": "^17.3.2",
+    "lucide-react": "^0.563.0",
     "protobufjs": "^7.5.4",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.4.0",
     "ws": "^8.18.3"
   },
   "devDependencies": {
+    "@electron-toolkit/preload": "^3.0.2",
+    "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^24.5.2",
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
     "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^5.1.4",
+    "electron": "^40.2.1",
+    "electron-builder": "^26.7.0",
+    "tailwindcss": "^4.1.18",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vite": "^7.3.1"
   }
 }
